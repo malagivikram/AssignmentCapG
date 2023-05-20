@@ -1,0 +1,26 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class PrdctCtgryPage {
+
+	
+	private WebDriver driver;
+	
+	@FindBy(xpath = "//*[@id=\"categorymenu\"]/nav/ul/li[6]/a")
+	private WebElement menCat;
+
+	@FindBy(linkText = "Fragrance Sets")
+    private WebElement loginLink;
+	public PrdctCtgryPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	public void clickMenCat() {
+		menCat.click();
+	}
+}

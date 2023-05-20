@@ -1,0 +1,14 @@
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SystemProps {
+
+	WebDriver driver;
+	
+	public void chrome() {
+		
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers/chromedriver.exe");
+		driver=new ChromeDriver();
+	}
+	
+}

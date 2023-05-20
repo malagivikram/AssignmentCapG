@@ -1,0 +1,165 @@
+package stepDefinitions;
+
+import java.time.Duration;
+
+import org.testng.Assert;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.HomePage;
+import pages.LoginPage;
+import pages.ProductsPage;
+import pages.RegisterationPage;
+
+
+
+public class StepsForEndtoEndTest{
+	
+	WebDriver driver=null;
+	LoginPage cont;
+	RegisterationPage reg;
+	HomePage hm;
+	
+	@Before
+	public void setUpBrowser() {
+		
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers/chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.get("https://automationteststore.com/index.php?rt=account/login");
+		
+	}
+	
+	@After
+	public void teardownBrowser() {
+		
+		driver.close();
+		driver.quit();
+	}
+
+@Given("User clicks on continue button for Registeration")
+public void user_clicks_on_continue_button_for_registeration() {
+
+	cont=new LoginPage(driver);
+	cont.clickOnContinue();	
+}
+
+@And("User enters First Name {string}, Last Name {string} and E-mail address {string}")
+public void user_enters_first_name_last_name_and_e_mail_address(String string, String string2, String string3) {
+	
+	reg=new RegisterationPage(driver);
+	
+	reg.enterFirstName(string);
+	reg.enterLastName(string2);
+	reg.enterEmailID(string3);
+}
+
+@And("User selects country {string} and {string} from the dropdown")
+public void user_selects_country_and_from_the_dropdown(String string, String string2) {
+
+	reg.selectCountry("India");
+	reg.selectState("Karnataka");
+}
+
+@And("User enters Address1  {string}, City {string} and ZIP code {string}")
+public void user_enters_address1_city_and_zip_code(String string, String string2, String string3) {
+
+	reg.enteraddress1(string);
+	reg.enterCity(string2);
+	reg.enterZipCode(string3);
+}
+
+@And("User enters Login Name {string}, desired password as {string} and confirm your password as {string}")
+public void user_enters_login_name_desired_password_as_and_confirm_your_password_as(String string, String string2, String string3) {
+
+	
+}
+
+@And("User checks the PrivacyPolicy checkbox")
+public void user_checks_the_privacy_policy_checkbox() {
+
+	reg.checkPolicy();
+}
+
+@When("User clicks on continue button")
+public void user_clicks_on_continue_button() {
+
+	reg.clickOnContinue();
+}
+
+@Then("Validate for the successful account creation")
+public void validate_for_the_successful_account_creation() {
+
+	Assert.assertEquals("Your Account Has Been Created!", reg.validateSuccessMessage());
+}
+
+
+
+
+
+
+@Given("User enters the {string} and {string}")
+public void user_enters_the_and(String string, String string2) {
+
+	cont.enterLoginName(string2);
+	cont.enterPassword(string2);
+	
+}
+
+@When("User clicks on Login button")
+public void user_clicks_on_login_button() {
+	cont.clickOnLogin();
+}
+
+@Then("Validate the HomePage is displayed")
+public void validate_the_home_page_is_displayed() {
+
+	HomePage hm=new HomePage(driver);
+	
+	String wel=hm.verifyUsername();
+	
+	if(wel.contains("Welcome back")) {
+		System.out.println("Validation Passed");
+	}
+}
+
+
+
+
+@Given("User Navigates to MEN catagery")
+public void user_navigates_to_men_catagery() {
+
+	ProductsPage prod=new ProductsPage(driver);
+}
+
+@When("User Adds items to the cart")
+public void user_adds_items_to_the_cart() {
+
+}
+
+@And("User clicks on cart button")
+public void user_clicks_on_cart_button() {
+
+}
+
+@Then("check for the items added to the cart")
+public void check_for_the_items_added_to_the_cart() {
+ 
+}
+
+@And("Verify the payment details for the products added")
+public void verify_the_payment_details_for_the_products_added() {
+
+}
+	
+	
+	
+	
+}

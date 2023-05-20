@@ -1,0 +1,39 @@
+package POMs;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class LandingPage {
+
+    private WebDriver driver;
+    
+    // Locators
+    private By loginButtonLocator = By.id("loginButton");
+    private By signUpButtonLocator = By.id("signUpButton");
+    
+    public LandingPage(WebDriver driver) {
+        this.driver = driver;
+    }
+    
+    public void clickLoginButton() {
+        WebElement loginButton = driver.findElement(loginButtonLocator);
+        loginButton.click();
+    }
+    
+    public void clickSignUpButton() {
+        WebElement signUpButton = driver.findElement(signUpButtonLocator);
+        signUpButton.click();
+    }
+    
+    public boolean isLoginButtonDisplayed() {
+        return driver.findElement(loginButtonLocator).isDisplayed();
+    }
+    
+    public boolean isSignUpButtonDisplayed() {
+        return driver.findElement(signUpButtonLocator).isDisplayed();
+    }
+    
+    public String getLoginPageTitle() {
+        return driver.getTitle();
+    }
+}

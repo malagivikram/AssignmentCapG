@@ -1,0 +1,39 @@
+#Register on the website
+#Click SignIn on the landing page
+#Create Account by entering email address
+#Enter details on the Your Personal Information (Please use any sample data and not your personal information) and click Register
+#Validate on the landing screen - correct name and surname is displayed
+#Add a product to the cart
+#Proceed to the checkout page and continue till payments
+#Validate on the payments page if the product details are correct
+@tag
+Feature: Register on the website using the email address
+ 				 Validate the Home page
+				 Add a product to the cart and verify the payment page.
+				 
+				
+  @tag1
+  Scenario: Register by Creating an Account on the Website using the email address
+    Given User is on Landing Page 
+    And Clicks on Login or register button
+    When Clicks on Continue button for Registeration
+    And User inputs all the required or mandatory fields
+    And Select the PrivacyPolicy checkbox
+    Then Validate for the Account Created
+    
+    
+  Scenario: Login and check for the Home Page and Correct Name
+    Given User is on Landing Page
+    And User Clicks on Login or register button
+    When User enters the <LoginName> and <Password>
+    And User clicks on Login button
+    Then Validate the HomePage is displayed
+    And check for the Correct Name
+    
+  Scenario: Add a Product to the Cart and check the Payment details
+    Given User Navigates to MEN catagery
+    When Adds items to the cart
+    And click on cart button
+    Then check for the items added to the cart
+    And Verify the payment details for the products added
+

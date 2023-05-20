@@ -1,0 +1,10 @@
+
+public class SystemProps {
+
+	WebDriver driver;
+	
+	public void properties() {
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers")
+	}
+	
+}

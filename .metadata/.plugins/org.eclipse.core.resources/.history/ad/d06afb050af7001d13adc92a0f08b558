@@ -1,0 +1,29 @@
+package utilities;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class ConfigReader {
+
+	public static Properties property;
+	private static String configPath = "src/test/resources/config.properties";
+
+	public static void initializePropertyFile() throws Exception {
+		property = new Properties();
+		try {
+			InputStream input = new FileInputStream("src/test/resources/config.properties");
+			property.load(input);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		String value1 = properties.getProperty("key1");
+		String value2 = properties.getProperty("key2");
+		String value3 = properties.getProperty("key3");
+		input.close();
+	}
+}

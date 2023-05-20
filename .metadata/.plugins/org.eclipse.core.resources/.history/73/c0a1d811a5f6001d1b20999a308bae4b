@@ -1,0 +1,16 @@
+package utilities;
+
+import java.time.Duration;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SystemProperty {
+
+	public void launchBrowser() {
+		System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers/chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.get("https://automationteststore.com/");
+	}
+}

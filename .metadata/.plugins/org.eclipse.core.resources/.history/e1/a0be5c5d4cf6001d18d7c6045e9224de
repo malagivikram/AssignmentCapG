@@ -1,0 +1,38 @@
+package POMs;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LandingPage {
+
+    private WebDriver driver;
+    
+    // Locators
+    @FindBy(id = "username")
+    private WebElement usernameInput;
+    
+    @FindBy(id = "password")
+    private WebElement passwordInput;
+    
+    @FindBy(id = "loginButton")
+    private WebElement loginButton;
+    
+    public LandingPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+    
+    public void setUsername(String username) {
+        usernameInput.sendKeys(username);
+    }
+    
+    public void setPassword(String password) {
+        passwordInput.sendKeys(password);
+    }
+    
+    public void clickLoginButton() {
+        loginButton.click();
+    }
+}

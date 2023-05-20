@@ -1,0 +1,24 @@
+package utilities;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class ConfigReader {
+
+
+	public void readConfig() throws Exception {
+		Properties properties = new Properties();
+		InputStream input = new FileInputStream("config.properties");
+		properties.load(input);
+		
+		String value1 = properties.getProperty("key1");
+		String value2 = properties.getProperty("key2");
+		String value3 = properties.getProperty("key3");
+		
+		
+		input.close();
+	}
+}

@@ -1,0 +1,55 @@
+#Register on the website
+#Click SignIn on the landing page
+#Create Account by entering email address
+#Enter details on the Your Personal Information (Please use any sample data and not your personal information) and click Register
+#Validate on the landing screen - correct name and surname is displayed
+#Add a product to the cart
+#Proceed to the checkout page and continue till payments
+#Validate on the payments page if the product details are correct
+
+Feature: Register on the website using the email address
+  			 Validate the Home page
+  		 Add a product to the cart and verify the payment page
+
+
+Background: 
+Given User launch chrome browser 
+And User opens application
+
+
+	#@Registeration
+  Scenario: Register by Creating an Account on the Website using the email address
+    
+    And Clicks on Login or register button
+    And enter your First Name <firstName>
+    And enter your Last Name <lastName>
+    And enter your E-mail address <email>
+    And enter your Address1  <address1>
+    And Select your country from the dropdown <country>
+    And Select your region/state from the dropdown <state>
+    And enter your City <city>
+    And enter your ZIP code <zipcode>
+    And enter your Login Name <loginName>
+    And enter your desired password as <password>
+    And confirm your password as <password>
+    When Clicks on Continue button for Registeration
+    And User inputs all the required or mandatory fields
+    And Select the PrivacyPolicy checkbox
+    Then Validate for the successful account creation
+	
+	#@Login
+  Scenario: Login and check for the Home Page and Welcome Name
+    Given User is on Login Page
+    And User Clicks on Login or register button
+    When User enters the <loginName> and <password>
+    And User clicks on Login button
+    Then Validate the HomePage is displayed
+    And check for the Welcome Name
+
+	#@Cart
+  Scenario: Add a Product to the Cart and check the Payment details
+    Given User Navigates to MEN catagery
+    When Adds items to the cart
+    And click on cart button
+    Then check for the items added to the cart
+    And Verify the payment details for the products added

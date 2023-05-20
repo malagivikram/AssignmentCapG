@@ -1,0 +1,52 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class RegisterationPage {
+
+    private WebDriver driver;
+    
+    // Locators
+    @FindBy(id = "AccountFrm_firstname")
+    private WebElement firstName;
+    
+    @FindBy(id = "AccountFrm_lastname")
+    private WebElement lastName;
+    
+    @FindBy(id = "AccountFrm_email")
+    private WebElement emailID;
+    
+    @FindBy(id = "AccountFrm_address_1")
+    private WebElement address1;
+    
+    @FindBy(id = "AccountFrm_city")
+    private WebElement city;
+    
+    @FindBy(id = "//select[@id='AccountFrm_country_id']")
+    private WebElement country;
+    
+    @FindBy(id = "//select[@id='AccountFrm_zone_id']")
+    private WebElement country;
+    
+    @FindBy(id = "//select[@id='AccountFrm_country_id']")
+    private WebElement country;
+    
+    
+    public RegisterationPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+    
+    public void clickOnContinue() {
+ 
+    	continueBtn.click();;
+    }
+    
+    public void clickOnLogin() {
+    	 
+    	loginBtn.click();;
+    }
+}

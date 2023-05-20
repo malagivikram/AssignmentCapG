@@ -1,0 +1,33 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class RegisterationPage {
+
+    private WebDriver driver;
+    
+    // Locators
+    @FindBy(id = "AccountFrm_firstname")
+    private WebElement continueBtn;
+    
+    @FindBy(id = "AccountFrm_lastname")
+    private WebElement loginBtn;
+    
+    public RegisterationPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+    
+    public void clickOnContinue() {
+ 
+    	continueBtn.click();;
+    }
+    
+    public void clickOnLogin() {
+    	 
+    	loginBtn.click();;
+    }
+}

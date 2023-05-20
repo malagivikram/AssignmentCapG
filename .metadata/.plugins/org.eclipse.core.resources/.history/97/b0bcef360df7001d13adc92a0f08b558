@@ -1,0 +1,52 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import utilities.ConfigReader;
+
+public class LoginPage {
+
+    private WebDriver driver;
+    ConfigReader config;
+    // Locators
+    @FindBy(xpath = "//button[@title='Continue']")
+    private WebElement continueBtn;
+    
+    @FindBy(xpath = "//button[@title='Login']")
+    private WebElement loginBtn;
+    
+    @FindBy(id = "loginFrm_loginname")
+    private WebElement loginName;
+    
+    @FindBy(id = "loginFrm_password")
+    private WebElement password;
+    
+    
+    public LoginPage(WebDriver driver) {
+   
+        PageFactory.initElements(driver, this);
+    }
+    
+    public void clickOnContinue() {
+ 
+    	continueBtn.click();;
+    }
+    
+    public void clickOnLogin() {
+    	 
+    	loginBtn.click();;
+    }
+    
+    public void enterLoginName(ConfigReader.property.getProperty("key1")) {
+   	 
+    	loginName.sendKeys(loginname);
+    }
+    
+    public void enterPassword(String pass ) {
+      	 
+    	password.sendKeys(pass);
+    }
+}

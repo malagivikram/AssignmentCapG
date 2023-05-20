@@ -1,0 +1,33 @@
+package utilities;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class ConfigReader {
+
+    public static void main(String[] args) {
+        try {
+            Properties properties = new Properties();
+            InputStream input = new FileInputStream("src/test/resources/config.properties");
+
+            // Load the properties from the file
+            properties.load(input);
+
+            // Fetch values using the keys
+            String value1 = properties.getProperty("key1");
+            String value2 = properties.getProperty("key2");
+            String value3 = properties.getProperty("key3");
+
+            // Print the values
+            System.out.println("Value 1: " + value1);
+            System.out.println("Value 2: " + value2);
+            System.out.println("Value 3: " + value3);
+
+            input.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

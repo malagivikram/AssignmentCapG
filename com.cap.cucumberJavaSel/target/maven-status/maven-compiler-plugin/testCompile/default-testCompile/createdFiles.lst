@@ -1,0 +1,10 @@
+pages\ProductsPage.class
+stepDefinitions\StepsForEndtoEndTest.class
+pages\LoginPage.class
+pages\CartPage.class
+pages\HomePage.class
+pages\RegisterationPage.class
+runners\TestRunner.class
+utilities\ConfigReader.class
+pages\LandingPage.class
+utilities\SystemProperty.class
