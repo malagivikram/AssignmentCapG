@@ -1,16 +1,7 @@
-#Register on the website
-#Click SignIn on the landing page
-#Create Account by entering email address
-#Enter details on the Your Personal Information (Please use any sample data and not your personal information) and click Register
-#Validate on the landing screen - correct name and surname is displayed
-#Add a product to the cart
-#Proceed to the checkout page and continue till payments
-#Validate on the payments page if the product details are correct
 Feature: This feature is for Register on the website using the email address
   			 Validate the Home page Add a product to the cart and verify the payment page
   
-  Change the test datas for creating a new account
-
+  # Change the test datas for creating a new account
   @Registeration
   Scenario Outline: Register by Creating an Account on the Website using the email address
     Given User clicks on continue button for Registeration
@@ -24,7 +15,7 @@ Feature: This feature is for Register on the website using the email address
 
     Examples: 
       | firstName      | lastName      | email                | country | state     | address      | city      | zip    | loginName      | password          | confPass          |
-      | TestFirstName2 | TestLastName2 | Testemail2543@gmail.com | India   | Karnataka | TestAddress2 | Bangalore | 560029 | TestLoginName2 | TestPassowrd21234 | TestPassowrd21234 |
+      | TestFirstNameQA | TestLastNameQA | TestemailQA123@gmail.com | India   | Karnataka | TestAddressQA | Bangalore | 560029 | TestLoginNameQA | TestPassowrdQA321 | TestPassowrdQA321 |
 
   #Enter the user credentials
   @Login
