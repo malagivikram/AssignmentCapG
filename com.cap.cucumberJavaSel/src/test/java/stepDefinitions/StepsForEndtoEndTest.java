@@ -131,8 +131,8 @@ public void validate_the_home_page_is_displayed() {
 	
 	String wel=hm.verifyUsername();
 	
-	if(wel.contains("Welcome back")) {
-		System.out.println("HomePage Displayed");
+	if(wel.contains("TestLoginName1")) {
+		System.out.println("HomePage Displayed with correct Name");
 	}
 }
 
